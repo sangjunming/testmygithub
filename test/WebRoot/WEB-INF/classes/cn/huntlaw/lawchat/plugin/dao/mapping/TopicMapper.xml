@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.huntlaw.lawchat.plugin.dao.TopicMapper">
+
+	<resultMap id="BaseResultMap" type="cn.huntlaw.lawchat.plugin.entity.Topic">
+		<id column="id" 			 	property="id" 				jdbcType="INTEGER" />
+		<result column="topic_no" 		property="topicNo" 			jdbcType="VARCHAR" />
+		<result column="title" 	 	 	property="title" 			jdbcType="VARCHAR" />
+		<result column="content" 	 	property="content" 			jdbcType="VARCHAR" />
+		<result column="imagecount" 	property="imagecount" 		jdbcType="INTEGER" />
+		<result column="location_x" 	property="location_x" 		jdbcType="REAL" />
+		<result column="location_y" 	property="location_y" 		jdbcType="REAL" />
+		<result column="createtime" 	property="createtime" 		jdbcType="DATE" />
+		<result column="updatetime" 	property="updatetime" 		jdbcType="DATE" />
+	</resultMap>
+	
+	<!--查询所有-->
+	<select id="selectAllTopic"  resultMap="BaseResultMap" >
+		SELECT
+		   u.*
+		FROM topic u
+	</select>
+	
+	<!-- 查询一个 -->
+	<select id="selectTopicByTopicNo"  parameterType="cn.huntlaw.lawchat.plugin.entity.Topic" resultMap="BaseResultMap" >
+		SELECT
+		   u.*
+		FROM topic u
+		   u.topic_no = #{topicNo,jdbcType=VARCHAR}
+	</select>
+	
+    <!--插入-->
+	<insert id="insertTopic" parameterType="cn.huntlaw.lawchat.plugin.entity.Topic">
+	 <selectKey keyProperty="topicNo" order="BEFORE" resultType="java.lang.String">
+			SELECT uuid()
+	 </selectKey>
+		INSERT INTO topic(
+			 topic_no,
+			 title,
+			 content,
+			 imagecount,
+			 location_x,
+			 location_y,
+			 createtime,
+			 updatetime
+		)VALUES(
+			#{topicNo,		jdbcType=VARCHAR},
+			#{title,		jdbcType=VARCHAR},
+			#{content,		jdbcType=VARCHAR},
+			#{imagecount,	jdbcType=INTEGER},
+			#{location_x,	jdbcType=REAL},
+			#{location_y,	jdbcType=REAL},
+			#{createtime,	jdbcType=DATE},
+			#{updatetime,	jdbcType=DATE}
+		)
+	</insert>
+
+	<!--修改 -->
+	<update id="updateTopicByTopicNo" parameterType="cn.huntlaw.lawchat.plugin.entity.Topic">
+		update topic
+		<set>
+		   <if test="title!=null and ''!=title">title=#{title,jdbcType=VARCHAR},</if>
+		   <if test="content!=null and ''!=content">content=#{content,jdbcType=VARCHAR},</if>
+		   <if test="imagecount!=null">imagecount=#{imagecount,jdbcType=VARCHAR},</if>
+		   <if test="location_x!=null">location_x=#{location_x,jdbcType=VARCHAR},</if>
+		   <if test="location_y!=null">location_y=#{location_y,jdbcType=VARCHAR},</if>
+		   <if test="createtime!=null">createtime=#{createtime,jdbcType=VARCHAR},</if>
+		   <if test="updatetime!=null">updatetime=#{updatetime,jdbcType=VARCHAR},</if>
+		</set>
+		where topic_no = #{topicNo,jdbcType=VARCHAR}
+	</update>
+	
+	<!--删除-->
+	<delete id="deleteTopicByTopicNo" parameterType="java.lang.String">
+		delete from topic where topic_no = #{topicNo,jdbcType=VARCHAR}
+	</delete>
+</mapper>

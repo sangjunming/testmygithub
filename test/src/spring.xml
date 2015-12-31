@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:cache="http://www.springframework.org/schema/cache" xmlns:context="http://www.springframework.org/schema/context" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:jms="http://www.springframework.org/schema/jms" xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:oxm="http://www.springframework.org/schema/oxm" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd  
+   	http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-4.0.xsd  
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd  
+    http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd  
+    http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd  
+    http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-4.0.xsd  
+  	http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.0.xsd  
+   	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd  
+  	http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-4.0.xsd  
+ 	http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd  
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd  
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+	<!-- 加载配置文件 -->
+	<context:property-placeholder location="classpath:dbcp.properties" />
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${a.jdbc.driverClass}" />
+		<property name="url" value="${a.jdbc.url}" />
+		<property name="username" value="${a.jdbc.user}" />
+		<property name="password" value="${a.jdbc.password}" />
+		<property name="initialSize" value="${a.jdbc.initialSize}" />
+		<property name="maxActive" value="${a.jdbc.maxActive}" />
+		<property name="maxIdle" value="${a.jdbc.maxIdle}" />
+		<property name="maxWait" value="${a.jdbc.maxWait}" />
+	</bean>
+
+	<!-- spring和MyBatis整合 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- domain 类别名 -->
+		<property name="typeAliasesPackage" value="cn.huntlaw.lawchat.plugin.entity" />
+		<!-- 自动扫描mapping.xml文件 -->
+		<property name="mapperLocations" value="cn/huntlaw/lawchat/plugin/dao/mapping/*.xml"></property>
+	</bean>
+
+	<!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="cn.huntlaw.lawchat.plugin.dao" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+	</bean>
+
+	<!-- service 自动注入 -->
+	<context:component-scan base-package="cn.huntlaw.lawchat.plugin.service" />
+
+	<!-- <bean id="dataSourceInterceptor" class="cn.huntlaw.lawchat.plugin.multidatasource.DataSourceInterceptor" /> -->
+	<!-- <aop:config>
+		<aop:aspect id="dataSourceAspect" ref="">
+			<aop:pointcut id="setdataSource" expression="execution(* cn.huntlaw.lawchat.plugin.service.*.*(..))" />
+			<aop:before method="setdataSource" pointcut-ref="setdataSource" />
+		</aop:aspect>
+	</aop:config> -->
+</beans>
