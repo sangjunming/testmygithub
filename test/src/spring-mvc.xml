@@ -52,7 +52,7 @@
 		<property name="maxUploadSize" value="10485760" />
 	</bean>
 
-	<!--这里是本地修改了的内容-->
+	<!--这是服务器上的修改-->
 
 	
 	
