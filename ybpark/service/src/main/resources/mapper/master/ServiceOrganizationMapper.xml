@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yuanbao.park.dao.master.ServiceOrganizationMapper" >
+  <resultMap id="BaseResultMap" type="com.yuanbao.park.entity.ServiceOrganization" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="parkId" property="parkId" jdbcType="BIGINT" />
+    <result column="institutionName" property="institutionName" jdbcType="VARCHAR" />
+    <result column="institutionType" property="institutionType" jdbcType="VARCHAR" />
+    <result column="serviceType" property="serviceType" jdbcType="VARCHAR" />
+    <result column="serviceItem" property="serviceItem" jdbcType="VARCHAR" />
+    <result column="cooMethod" property="cooMethod" jdbcType="VARCHAR" />
+    <result column="beginTime" property="beginTime" jdbcType="DATE" />
+    <result column="contacts" property="contacts" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="deleteType" property="deleteType" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP" />
+    <result column="remark1" property="remark1" jdbcType="VARCHAR" />
+    <result column="remark2" property="remark2" jdbcType="VARCHAR" />
+    <result column="remark3" property="remark3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, parkId, institutionName, institutionType, serviceType, serviceItem, cooMethod, 
+    beginTime, contacts, telephone, address, deleteType, createTime, updateTime, deleteTime, 
+    remark1, remark2, remark3
+  </sql>
+
+</mapper>

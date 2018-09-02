@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yuanbao.park.dao.master.ParkMapper" >
+  <resultMap id="BaseResultMap" type="com.yuanbao.park.entity.Park" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="partLabel" property="partLabel" jdbcType="VARCHAR" />
+    <result column="partGeographic" property="partGeographic" jdbcType="VARCHAR" />
+    <result column="partRoundTraffic" property="partRoundTraffic" jdbcType="VARCHAR" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="company" property="company" jdbcType="VARCHAR" />
+    <result column="area" property="area" jdbcType="INTEGER" />
+    <result column="facility" property="facility" jdbcType="VARCHAR" />
+    <result column="companyId" property="companyId" jdbcType="VARCHAR" />
+    <result column="deleteType" property="deleteType" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP" />
+    <result column="remark1" property="remark1" jdbcType="VARCHAR" />
+    <result column="remark2" property="remark2" jdbcType="VARCHAR" />
+    <result column="remark3" property="remark3" jdbcType="VARCHAR" />
+    <result column="remark4" property="remark4" jdbcType="VARCHAR" />
+    <result column="partSummary" property="partSummary" jdbcType="VARCHAR" />
+    <result column="partService" property="partService" jdbcType="VARCHAR" />
+    <result column="preferentialPolicy" property="preferentialPolicy" jdbcType="VARCHAR" />
+    <result column="applicationConditions" property="applicationConditions" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, name, price, partLabel, partGeographic, partRoundTraffic, photo, company, area, 
+    facility, companyId, deleteType, createTime, updateTime, deleteTime, remark1, remark2,remark3, remark4,
+    partSummary, partService, preferentialPolicy, applicationConditions
+
+  </sql>
+</mapper>

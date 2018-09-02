@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yuanbao.park.dao.master.CompanyMapper" >
+  <resultMap id="BaseResultMap" type="com.yuanbao.park.entity.Company" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="roundNum" property="roundNum" jdbcType="VARCHAR" />
+    <result column="companyName" property="companyName" jdbcType="VARCHAR" />
+    <result column="businese" property="businese" jdbcType="VARCHAR" />
+    <result column="qualifications" property="qualifications" jdbcType="VARCHAR" />
+    <result column="category" property="category" jdbcType="INTEGER" />
+    <result column="entryTime" property="entryTime" jdbcType="TIMESTAMP" />
+    <result column="entryState" property="entryState" jdbcType="INTEGER" />
+    <result column="contact" property="contact" jdbcType="VARCHAR" />
+    <result column="contactNumber" property="contactNumber" jdbcType="VARCHAR" />
+    <result column="teamSize" property="teamSize" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="graphs" property="graphs" jdbcType="VARCHAR" />
+    <result column="commentMessage" property="commentMessage" jdbcType="VARCHAR" />
+    <result column="logo" property="logo" jdbcType="VARCHAR" />
+    <result column="socialCreditCode" property="socialCreditCode" jdbcType="VARCHAR" />
+    <result column="registeredCapital" property="registeredCapital" jdbcType="DECIMAL" />
+    <result column="legalRepresentative" property="legalRepresentative" jdbcType="VARCHAR" />
+    <result column="establishmentDate" property="establishmentDate" jdbcType="TIMESTAMP" />
+    <result column="approvalDate" property="approvalDate" jdbcType="TIMESTAMP" />
+    <result column="operationStatus" property="operationStatus" jdbcType="INTEGER" />
+    <result column="operationTermStart" property="operationTermStart" jdbcType="TIMESTAMP" />
+    <result column="operationTermEnd" property="operationTermEnd" jdbcType="TIMESTAMP" />
+    <result column="registerInstitution" property="registerInstitution" jdbcType="VARCHAR" />
+    <result column="companyType" property="companyType" jdbcType="INTEGER" />
+    <result column="operationRange" property="operationRange" jdbcType="VARCHAR" />
+    <result column="registrationAddress" property="registrationAddress" jdbcType="VARCHAR" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleteType" property="deleteType" jdbcType="INTEGER" />
+    <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP" />
+    <result column="parkId" property="parkId" jdbcType="BIGINT" />
+    <result column="website" property="website" jdbcType="VARCHAR" />
+    <result column="remark1" property="remark1" jdbcType="VARCHAR" />
+    <result column="remark2" property="remark2" jdbcType="VARCHAR" />
+    <result column="remark3" property="remark3" jdbcType="VARCHAR" />
+    <result column="remark4" property="remark4" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, roundNum, companyName, businese, qualifications, category, entryTime, entryState, contact, contactNumber,
+    teamSize, address, graphs, commentMessage, logo, socialCreditCode, registeredCapital, 
+    legalRepresentative, establishmentDate, approvalDate, operationStatus, operationTermStart, 
+    operationTermEnd, registerInstitution, companyType, operationRange, registrationAddress, 
+    createTime, updateTime, deleteType, deleteTime, parkId, website, remark1, remark2, 
+    remark3, remark4
+  </sql>
+
+</mapper>

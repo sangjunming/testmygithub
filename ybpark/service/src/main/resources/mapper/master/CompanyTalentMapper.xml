@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yuanbao.park.dao.master.CompanyTalentMapper" >
+  <resultMap id="BaseResultMap" type="com.yuanbao.park.entity.CompanyTalent" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="companyId" property="companyId" jdbcType="BIGINT" />
+    <result column="companyName" property="companyName" jdbcType="VARCHAR" />
+    <result column="talentType" property="talentType" jdbcType="VARCHAR" />
+    <result column="talentName" property="talentName" jdbcType="VARCHAR" />
+    <result column="talentPlaned" property="talentPlaned" jdbcType="VARCHAR" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="birthDate" property="birthDate" jdbcType="DATE" />
+    <result column="education" property="education" jdbcType="VARCHAR" />
+    <result column="graduateSchool" property="graduateSchool" jdbcType="VARCHAR" />
+    <result column="talentPosition" property="talentPosition" jdbcType="VARCHAR" />
+    <result column="workExperience" property="workExperience" jdbcType="VARCHAR" />
+    <result column="introduction" property="introduction" jdbcType="VARCHAR" />
+    <result column="deleteType" property="deleteType" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP" />
+    <result column="remark1" property="remark1" jdbcType="VARCHAR" />
+    <result column="remark2" property="remark2" jdbcType="VARCHAR" />
+    <result column="remark3" property="remark3" jdbcType="VARCHAR" />
+    <result column="remark4" property="remark4" jdbcType="VARCHAR" />
+    <result column="parkId" property="parkId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, companyId, companyName,talentType,talentName,talentPlaned, photo, sex, birthDate, education, graduateSchool, talentPosition,
+    workExperience, introduction, deleteType, createTime, updateTime, deleteTime, remark1, 
+    remark2, remark3, remark4, parkId
+  </sql>
+
+</mapper>

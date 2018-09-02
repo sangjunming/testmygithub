@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yuanbao.park.dao.master.ParkNewsMapper" >
+  <resultMap id="BaseResultMap" type="com.yuanbao.park.entity.ParkNews" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="labelId" property="labelId" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="parkName" property="parkName" jdbcType="VARCHAR" />
+    <result column="parkId" property="parkId" jdbcType="BIGINT" />
+    <result column="sources" property="sources" jdbcType="VARCHAR" />
+    <result column="sourcesWebsite" property="sourcesWebsite" jdbcType="VARCHAR" />
+    <result column="tag" property="tag" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="publicationUnit" property="publicationUnit" jdbcType="VARCHAR" />
+    <result column="releasedTime" property="releasedTime" jdbcType="DATE" />
+    <result column="newsType" property="newsType" jdbcType="INTEGER" />
+    <result column="deleteType" property="deleteType" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP" />
+    <result column="remark1" property="remark1" jdbcType="VARCHAR" />
+    <result column="remark2" property="remark2" jdbcType="VARCHAR" />
+    <result column="remark3" property="remark3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, labelId,title, parkName, parkId, sources, sourcesWebsite, tag, content,publicationUnit, releasedTime, newsType, deleteType,
+    createTime,updateTime,deleteTime,remark1,remark2,remark3
+  </sql>
+</mapper>

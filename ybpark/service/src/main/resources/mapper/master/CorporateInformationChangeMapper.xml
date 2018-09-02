@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yuanbao.park.dao.master.CorporateInformationChangeMapper" >
+  <resultMap id="BaseResultMap" type="com.yuanbao.park.entity.CorporateInformationChange" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="companyId" property="companyId" jdbcType="BIGINT" />
+    <result column="changeType" property="changeType" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="newValue" property="newValue" jdbcType="VARCHAR" />
+    <result column="valueType" property="valueType" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP" />
+    <result column="remark1" property="remark1" jdbcType="VARCHAR" />
+    <result column="remark2" property="remark2" jdbcType="VARCHAR" />
+    <result column="remark3" property="remark3" jdbcType="VARCHAR" />
+    <result column="deleteType" property="deleteType" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, companyId, changeType, name, newValue, valueType, createTime, updateTime, deleteTime, 
+    remark1, remark2, remark3, deleteType
+  </sql>
+
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yuanbao.park.dao.master.ParkApplicationMapper" >
+  <resultMap id="BaseResultMap" type="com.yuanbao.park.entity.ParkApplication" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="applicationDate" property="applicationDate" jdbcType="DATE" />
+    <result column="applicationType" property="applicationType" jdbcType="INTEGER" />
+    <result column="printNum" property="printNum" jdbcType="INTEGER" />
+    <result column="deleteType" property="deleteType" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP" />
+    <result column="remark1" property="remark1" jdbcType="VARCHAR" />
+    <result column="remark2" property="remark2" jdbcType="VARCHAR" />
+    <result column="remark3" property="remark3" jdbcType="VARCHAR" />
+    <result column="remark4" property="remark4" jdbcType="VARCHAR" />
+    <result column="parkId" property="parkId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, telephone, applicationDate, applicationType, printNum, deleteType, createTime, 
+    updateTime, deleteTime, remark1, remark2, remark3, remark4, parkId
+  </sql>
+
+</mapper>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yuanbao.park.dao.master.StatisticsMapper" >
+  <resultMap id="BaseResultMap" type="com.yuanbao.park.entity.Statistics" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="parkId" property="parkId" jdbcType="BIGINT" />
+    <result column="years" property="years" jdbcType="DATE" />
+    <result column="companyNum" property="companyNum" jdbcType="BIGINT" />
+    <result column="incubator" property="incubator" jdbcType="BIGINT" />
+    <result column="college" property="college" jdbcType="BIGINT" />
+    <result column="totalRevenue" property="totalRevenue" jdbcType="DOUBLE" />
+    <result column="tax" property="tax" jdbcType="DOUBLE" />
+    <result column="investigativeRate" property="investigativeRate" jdbcType="DOUBLE" />
+    <result column="nationalProject" property="nationalProject" jdbcType="INTEGER" />
+    <result column="nationalProjectFunding" property="nationalProjectFunding" jdbcType="DOUBLE" />
+    <result column="provincialProject" property="provincialProject" jdbcType="INTEGER" />
+    <result column="provincialProjectFunding" property="provincialProjectFunding" jdbcType="DOUBLE" />
+    <result column="intellectualProperty" property="intellectualProperty" jdbcType="INTEGER" />
+    <result column="softwareCopyright" property="softwareCopyright" jdbcType="INTEGER" />
+    <result column="patent" property="patent" jdbcType="INTEGER" />
+    <result column="inventionPatent" property="inventionPatent" jdbcType="INTEGER" />
+    <result column="deleteType" property="deleteType" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP" />
+    <result column="remark1" property="remark1" jdbcType="VARCHAR" />
+    <result column="remark2" property="remark2" jdbcType="VARCHAR" />
+    <result column="remark3" property="remark3" jdbcType="VARCHAR" />
+    <result column="remark4" property="remark4" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, parkId, years, companyNum, incubator, college, totalRevenue, tax, investigativeRate, 
+    nationalProject, nationalProjectFunding, provincialProject, provincialProjectFunding,
+    intellectualProperty, softwareCopyright, patent, inventionPatent, deleteType, createTime, 
+    updateTime, deleteTime, remark1, remark2, remark3, remark4
+  </sql>
+
+</mapper>

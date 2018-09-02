@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yuanbao.park.dao.master.CompanyProductMapper">
+    <resultMap id="BaseResultMap" type="com.yuanbao.park.entity.CompanyProduct">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="companyId" property="companyId" jdbcType="BIGINT"/>
+        <result column="companyName" property="companyName" jdbcType="VARCHAR"/>
+        <result column="parkId" property="parkId" jdbcType="BIGINT"/>
+        <result column="productName" property="productName" jdbcType="VARCHAR"/>
+        <result column="industry" property="industry" jdbcType="VARCHAR"/>
+        <result column="introduction" property="introduction" jdbcType="VARCHAR"/>
+        <result column="advantage" property="advantage" jdbcType="VARCHAR"/>
+        <result column="award" property="award" jdbcType="VARCHAR"/>
+        <result column="website" property="website" jdbcType="VARCHAR"/>
+        <result column="photo" property="photo" jdbcType="VARCHAR"/>
+        <result column="video" property="video" jdbcType="VARCHAR"/>
+        <result column="deleteType" property="deleteType" jdbcType="INTEGER"/>
+        <result column="createTime" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP"/>
+        <result column="remark1" property="remark1" jdbcType="VARCHAR"/>
+        <result column="remark2" property="remark2" jdbcType="VARCHAR"/>
+        <result column="remark3" property="remark3" jdbcType="VARCHAR"/>
+        <result column="remark4" property="remark4" jdbcType="VARCHAR"/>
+        <!--关联company表-->
+        <association property="company" javaType="com.yuanbao.park.entity.Company">
+            <id column="id" property="id" jdbcType="BIGINT"/>
+            <result column="companyName" property="companyName" jdbcType="VARCHAR"/>
+            <result column="roundNum" property="roundNum" jdbcType="VARCHAR"/>
+            <result column="contact" property="contact" jdbcType="VARCHAR"/>
+            <result column="contactNumber" property="contactNumber" jdbcType="VARCHAR"/>
+        </association>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, companyId, companyName, parkId, productName, industry, introduction, advantage, award, website, photo,
+    video, deleteType, createTime, updateTime, deleteTime, remark1, remark2, remark3, 
+    remark4
+  </sql>
+
+    <!--根据查询条件查询企业产品信息列表-->
+    <select id="getProductList" parameterType="com.yuanbao.park.entity.CompanyProduct"
+            resultMap="BaseResultMap">
+      SELECT
+        <include refid="Base_Column_List"/>,c.roundNum,c.contact,c.contactNumber,c.entryTime
+      FROM
+	    company_product cp
+	  INNER JOIN
+	    company c
+	  ON
+	    c.id = cp.companyId
+      WHERE 1 = 1
+        <if test="productName != null and productName != ''" >
+          AND
+	        cp.productName = #{productName,jdbcType=VARCHAR}
+        </if>
+        <if test="industry != null and industry != ''" >
+          AND
+            cp.industry = #{industry,jdbcType=VARCHAR}
+        </if>
+        <if test="company != null">
+          <if test="company.roundNum != null">
+            AND
+              c.roundNum = #{company.roundNum,jdbcType=VARCHAR}
+          </if>
+          <if test="company.companyName != null">
+            AND
+              c.companyName = #{company.companyName,jdbcType=VARCHAR}
+          </if>
+          <if test="company.entryStartDate != null">
+            AND
+              c.entryTime <![CDATA[>=]]> #{company.entryStartDate,jdbcType=TIMESTAMP}
+          </if>
+          <if test="company.entryEndDate != null">
+            AND
+              c.entryTime <![CDATA[<=]]> #{company.entryEndDate,jdbcType=TIMESTAMP}
+          </if>
+          <if test="company.parkId != null company.parkId != ''">
+            AND
+              c.parkId = #{company.parkId,jdbcType=BIGINT}
+          </if>
+        </if>
+        AND
+          c.deleteType != 1
+	    order by
+          c.createTime desc
+  </select>
+
+</mapper>

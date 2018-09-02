@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yuanbao.park.dao.master.CompanyAdviceMapper" >
+  <resultMap id="BaseResultMap" type="com.yuanbao.park.entity.CompanyAdvice" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="companyName" property="companyName" jdbcType="VARCHAR" />
+    <result column="companyId" property="companyId" jdbcType="BIGINT" />
+    <result column="adviceType" property="adviceType" jdbcType="VARCHAR" />
+    <result column="adviceDate" property="adviceDate" jdbcType="DATE" />
+    <result column="adviceParten" property="adviceParten" jdbcType="INTEGER" />
+    <result column="remark4" property="remark4" jdbcType="VARCHAR" />
+    <result column="label" property="label" jdbcType="INTEGER" />
+    <result column="deleteType" property="deleteType" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP" />
+    <result column="remark1" property="remark1" jdbcType="VARCHAR" />
+    <result column="remark2" property="remark2" jdbcType="VARCHAR" />
+    <result column="remark3" property="remark3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, companyName, companyId, adviceType, adviceDate, adviceParten, remark4, label, 
+    deleteType, createTime, updateTime, deleteTime, remark1, remark2, remark3
+  </sql>
+
+</mapper>

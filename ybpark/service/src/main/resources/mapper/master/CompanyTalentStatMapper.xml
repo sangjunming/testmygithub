@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yuanbao.park.dao.master.CompanyTalentStatMapper" >
+  <resultMap id="BaseResultMap" type="com.yuanbao.park.entity.CompanyTalentStat" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="years" property="years" jdbcType="INTEGER" />
+    <result column="total" property="total" jdbcType="INTEGER" />
+    <result column="rd" property="rd" jdbcType="INTEGER" />
+    <result column="science" property="science" jdbcType="INTEGER" />
+    <result column="doctor" property="doctor" jdbcType="INTEGER" />
+    <result column="master" property="master" jdbcType="INTEGER" />
+    <result column="postgraduate" property="postgraduate" jdbcType="INTEGER" />
+    <result column="bachelor" property="bachelor" jdbcType="INTEGER" />
+    <result column="overseas" property="overseas" jdbcType="INTEGER" />
+    <result column="college" property="college" jdbcType="INTEGER" />
+    <result column="secondary" property="secondary" jdbcType="INTEGER" />
+    <result column="internship" property="internship" jdbcType="INTEGER" />
+    <result column="freshGraduate" property="freshGraduate" jdbcType="INTEGER" />
+    <result column="thousandPlan" property="thousandPlan" jdbcType="INTEGER" />
+    <result column="hundredPlan" property="hundredPlan" jdbcType="INTEGER" />
+    <result column="companyId" property="companyId" jdbcType="BIGINT" />
+    <result column="cityPartner" property="cityPartner" jdbcType="INTEGER" />
+    <result column="deleteType" property="deleteType" jdbcType="INTEGER" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP" />
+    <result column="remark1" property="remark1" jdbcType="VARCHAR" />
+    <result column="remark2" property="remark2" jdbcType="VARCHAR" />
+    <result column="remark3" property="remark3" jdbcType="VARCHAR" />
+    <result column="remark4" property="remark4" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, years, total, rd, science, doctor, master, postgraduate, bachelor, overseas, 
+    college, secondary, internship, freshGraduate, thousandPlan, hundredPlan, companyId, 
+    cityPartner, deleteType, createTime, updateTime, deleteTime, remark1, remark2, remark3, 
+    remark4
+  </sql>
+
+</mapper>
