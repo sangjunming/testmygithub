@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="CONSOLE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n" />
+	<property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" />
+
+	<!-- 控制台打印日志的相关配置 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- 保存日志文件的路径 -->
+		<!-- 日志格式 -->
+		<encoder>
+			<pattern>${CONSOLE_LOG_PATTERN}</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+		<!-- 日志级别过滤器 -->
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<!-- 过滤的级别 -->
+			<!--<level>INFO</level>-->
+			<level>DEBUG</level>
+		</filter>
+	</appender>
+
+	<!-- 文件保存日志的相关配置 -->
+	<appender name="ERROR-OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- 日志格式 -->
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+		<!-- 日志级别过滤器 -->
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<!-- 过滤的级别 -->
+			<level>ERROR</level>
+			<!-- 匹配时的操作：接收（记录） -->
+			<onMatch>ACCEPT</onMatch>
+			<!-- 不匹配时的操作：拒绝（不记录） -->
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<!-- 循环政策：基于时间创建日志文件 -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- 日志文件名格式 -->
+			<fileNamePattern>./logs/error-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<!-- 最大保存尺寸-->
+			<maxFileSize>10MB</maxFileSize>
+			<!-- 最大保存时间：30天-->
+			<maxHistory>30</maxHistory>
+			<!-- 累计最大文件-->
+			<totalSizeCap>2GB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+	<!-- 文件保存日志的相关配置 -->
+	<appender name="INFO-OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- 日志格式 -->
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+		<!-- 日志级别过滤器 -->
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<!-- 过滤的级别 -->
+			<level>INFO</level>
+			<!-- 匹配时的操作：接收（记录） -->
+			<onMatch>ACCEPT</onMatch>
+			<!-- 不匹配时的操作：拒绝（不记录） -->
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<!-- 循环政策：基于时间创建日志文件 -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- 日志文件名格式 -->
+			<fileNamePattern>./logs/res/log-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<!-- 最大保存尺寸-->
+			<maxFileSize>10MB</maxFileSize>
+			<!-- 最大保存时间：30天-->
+			<maxHistory>30</maxHistory>
+			<!-- 累计最大文件-->
+			<totalSizeCap>2GB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+	<!-- 文件保存日志的相关配置 -->
+	<appender name="WARN-OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- 日志格式 -->
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+		<!-- 日志级别过滤器 -->
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<!-- 过滤的级别 -->
+			<level>WARN</level>
+			<!-- 匹配时的操作：接收（记录） -->
+			<onMatch>ACCEPT</onMatch>
+			<!-- 不匹配时的操作：拒绝（不记录） -->
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<!-- 循环政策：基于时间创建日志文件 -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- 日志文件名格式 -->
+			<fileNamePattern>./logs/res/warn-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<!-- 最大保存尺寸-->
+			<maxFileSize>10MB</maxFileSize>
+			<!-- 最大保存时间：30天-->
+			<maxHistory>30</maxHistory>
+			<!-- 累计最大文件-->
+			<totalSizeCap>2GB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+	<!-- 文件保存日志的相关配置 -->
+	<appender name="DEBUG-OUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- 日志格式 -->
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+		<!-- 日志级别过滤器 -->
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<!-- 过滤的级别 -->
+			<level>DEBUG</level>
+			<!-- 匹配时的操作：接收（记录） -->
+			<onMatch>ACCEPT</onMatch>
+			<!-- 不匹配时的操作：拒绝（不记录） -->
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<!-- 循环政策：基于时间创建日志文件 -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- 日志文件名格式 -->
+			<fileNamePattern>./logs/res/debug-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<!-- 最大保存尺寸-->
+			<maxFileSize>10MB</maxFileSize>
+			<!-- 最大保存时间：30天-->
+			<maxHistory>30</maxHistory>
+			<!-- 累计最大文件-->
+			<totalSizeCap>2GB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+	<!-- Configure the Sentry appender, overriding the logging threshold to the WARN level -->
+	<appender name="Sentry" class="com.getsentry.raven.logback.SentryAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>WARN</level>
+		</filter>
+		<!-- DSN配置，各个项目不同 -->
+		<dsn>http://ec0ef562d0a14c26a526112a98709afc:28d8605c821f48c7a73f6d9d36ab0b07@log.ybPark.cn:6093/3</dsn>
+		<!-- 应用程序版本号配置 -->
+		<release>园宝-1.0.0</release>
+		<!-- 产品类型，测试还是生产 -->
+		<environment>production</environment>
+		<tags>tag1:园宝系统后台接口服务</tags>
+	</appender>
+
+	<!-- 基于dubug处理日志：具体控制台或者文件对日志级别的处理还要看所在appender配置的filter，如果没有配置filter，则使用root配置 -->
+	<root level="debug">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="ERROR-OUT" />
+		<appender-ref ref="INFO-OUT" />
+		<appender-ref ref="WARN-OUT" />
+		<appender-ref ref="DEBUG-OUT" />
+<!--		<appender-ref ref="Sentry" />-->
+	</root>
+</configuration>

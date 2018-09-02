@@ -1,0 +1,89 @@
+#启动环境
+spring:
+  profiles:
+    active: localhost
+
+server:
+    port: 8081
+    context-path: /ybPark
+
+#设置统一编码
+spring.http.encoding.charset: UTF-8
+spring.http.encoding.force: true
+spring.http.encoding.enabled: true
+
+## master 数据源配置
+master:
+  datasource:
+    url: jdbc:mysql://localhost:3306/yuanbao?useUnicode=true&characterEncoding=utf8&useSSL=false
+    #url: jdbc:mysql://39.104.75.46:3306/yuanbao?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+    minIdle: 10
+    maxActive: 300
+    maxWait: 60000
+    initialSize: 100
+    timeBetweenEvictionRunsMillis: 30000
+    minEvictableIdleTimeMillis: 30000
+    maxEvictableIdleTimeMillis: 60000
+    validationQuery: SELECT 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,log4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    keepAlive: true
+    removeAbandoned: true
+    removeAbandonedTimeout: 1800
+    logAbandoned: true
+
+## cluster 数据源配置
+#cluster.datasource.url=jdbc:mysql://localhost:3306/springbootdb_cluster?useUnicode=true&characterEncoding=utf8
+#cluster.datasource.username=root
+#cluster.datasource.password=123456
+#cluster.datasource.driverClassName=com.mysql.jdbc.Driver
+
+## cluster 数据源配置
+cluster:
+  datasource:
+    url: jdbc:mysql://localhost:3306/yuanbao?useUnicode=true&characterEncoding=utf8&useSSL=false
+    #url: jdbc:mysql://39.104.75.46:3306/yuanbao?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+    minIdle: 10
+    maxActive: 300
+    maxWait: 60000
+    initialSize: 100
+    timeBetweenEvictionRunsMillis: 30000
+    minEvictableIdleTimeMillis: 30000
+    maxEvictableIdleTimeMillis: 60000
+    validationQuery: SELECT 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,log4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    keepAlive: true
+    removeAbandoned: true
+    removeAbandonedTimeout: 200
+    logAbandoned: true
+
+##登录模块未开发,写死parkId与companyId
+park:
+  parkId: 888888
+  companyId: 666666
+
+#图片上传保存路径
+ybpark:
+  sourcesSavePath:
+    companyDataImage: E:/picSavePath
+    excelSavePath: E:/ybParkUploadFile/excelSavePath
+
+#logback配置文件
+logging.config: classpath:logback-spring.xml
